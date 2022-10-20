@@ -1,4 +1,4 @@
-//Creamos el componente Navbar
+//Creamos el componente Navbar.jsx
 
 //importamos componente Button
 import Button from './Button';
