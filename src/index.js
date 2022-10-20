@@ -1,17 +1,19 @@
+//Inincializar todo y renderizar
+
+//importando librerias de React 
 import React from 'react';
+//Renderizar en pantalla que se encarga que pueda renderizar en el DOM todolos componentes
 import ReactDOM from 'react-dom/client';
-import './index.css';
+
+//importando CSS styles misma ruta
+//import './index.css';
+
+//importando App.js
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+//SEO
+//import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+//llama constante y renderizar en App y punto de entrada
+root.render(<App />);

@@ -1,38 +1,113 @@
-.App {
-  text-align: center;
-}
+/* ESTILOS */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+/* FONTS */
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/*Roboto font 300, 400, 700*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+/* BODY */
+
+  /** {
+    padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+};
+*/
+
+
+/* HEADER */
+  .navbar {
+    background-color:lightgrey;
+    box-shadow:0px 0px 15px 1px #ccc;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .ul {
+    display: inline-flex;
+    list-style: none;
+    padding: 10px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .li {
+    margin: 0px 10px;
   }
-}
+
+
+
+/* MAIN */
+
+  .main {
+    min-height: 80vh;
+    text-align: center;
+    margin: 20px;
+  }
+
+  .h1-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    color: blueviolet;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+
+  }
+
+  .main-text {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+
+  }
+
+/* FOOTER */
+  .footer {
+    background-color:coral;
+    color: black;
+    box-shadow:0px 0px 15px 1px #ccc;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+  }
+
+  .text-footer {
+    background-color:snow;
+    color: black;
+    box-shadow:0px 0px 15px 1px #ccc;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+  }
+
+/* ICONS */
+  .icons {
+    display: flex;
+    align-items: center;
+  }
+
+  
+  .icon {
+    color: red;
+    font-weight: 700;
+    padding: 15px;
+  }
+
+/* IMG */
+
+  img {
+    max-width: 100px;
+  }
