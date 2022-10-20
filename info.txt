@@ -1,0 +1,149 @@
+
+Info importante a tener en cuenta con COMPONENTES en React
+__
+
+1. Todos los componentes son funciones.
+    
+    Antes llamamos y ejecutabamos funciones así:
+    
+    const foo = () => {}
+    foo();
+
+2. Todos los componenes se escriben con la inicial en MAYUSUCLA.
+
+    - en React - 
+    const Foo = () => {}
+
+3. Todos los componentes DEBEN RETORNAN SI O SI ALGO. No importa qué.
+    
+    const Foo = () => {
+        return()
+    }
+
+4. Todos los componentes DEBEN RETORNAR 1 (UN) SÓLO ELEMENTO.
+
+5. Los componentes retornan JSX
+    
+    Qué son los JSX? -> es JavaScript +  XML
+    Y son una extension de JavaScript. NO es de React. Y quien se encarga, la libreria, que yo pueda tener JSX dentro y utilizar React es BABEL.
+
+    Qué es BABEL?
+    BABEL es un TRANSPILADOR de Codigo. Toma una sintaxis de un codigo y lo transforma en una sintaxis valida para el navegador. En este caso el JSX.
+
+    Transpilador
+    https://www.babeljs.io
+    
+    Compilador
+    https://www.gulpjs.com
+
+    ej:
+    
+    JSX -> <div id="contenedor"> Bienvenidos </div>
+
+    Cómo leería el navegador mi codigo?
+
+    react.createElement( "div", {id:"contenedor"}, 'Bienvenidos' );
+
+    
+    <> </> REACT FRAGMENTS
+    ----
+
+    Para agrupar 1 elementos agrupador y evitar errores se llama: FRAGMENTS
+    Evitamos usar un div y ponemos varias etiquetas dentro de <> y no se puede ponerle clases ni estilos. Usar estrategicamente cuando necesitamos traer varios elementos.
+
+
+    DEntro de la carpeta src vamos a crear nuestros componentes
+    Los archivos deben comenzar con inicial en MAYUSCULA como en el codigo EJ: Header.jsx
+
+    Dividir por componentes
+    
+    Ej: //Creo el componente Header.jsx arrow function, con su return y al final EXPORT DEFAUKT exportamos para importarlo desde nuestro App.js
+
+    rafce -> Atajo para crear plantilla de (const Header = () => {return()}) de componente
+
+    El orden del codigo es el orden que se muestra
+
+    export default
+    ----
+    se importa sin llaves ejemplo (import Header from './components/Header';)
+
+    export nombrado
+    ----
+    va entre llaves y puede exportar varios elementos desde un mismo componente porque se puede tener 1 solo export default por archivo y el export se coloca por delante de la const:
+    (export const Header = () => {return()}))
+    
+    Y se importa con llaves, ejemplo, desde App quedaria, 
+    (import { Header, Otro, etc... } from './components/Header';)
+
+    + Solo puede haber 1 export default por archivo
+
+    Si quiero reutilizar un componente ya creado lo llamo entre </>
+
+    Los estilos son heredados y si quiero darle una clase a una etiqueta debería ser con className='navbar'> ejmeplo   <nav className='navbar'>
+    Que sean heredados significa que va a darle prioridad al que está mas cercano
+
+
+
+
+    PROPS
+    ----
+    esta es la forma:
+        
+        Foo key={value} />
+
+    const Foo = (props) => {}
+    const saludar = () => {console.log('Bienvenidos')}
+    
+    strings -> <Foo nombre='Eric'/>
+    numbers -> <Foo number={10} />
+    objetos -> <Foo persona={{id:1, nombre:"Fabian}}
+    array   -> <Foo listaDeSuper={["Manzana", "Banana"]} />
+    boolean -> <Foo 
+    funciones -><Foo listaDeSuper={saludar} />
+    componentes
+
+    mezclados -> <Foo cuerpo={ "Eric" edad={30} otraCosa{} }/>;
+    Siempre que mando una o varias PROPS me devuelve un objeto.
+
+    Cuando conviene pasar por PROPS?
+    ----
+
+        Pasar de padres a hijos la logica el resultado de esa logica la renderiza y la muestra.
+
+        Componentes contenedor le pasan la logica a los componentes presentacionales mediante las props, unidireccional, o sea, de padres hacia hijo.
+
+
+
+    LAYOUT
+    ---- 
+
+    Pasar por CHILDREN
+
+    Es una palabra reservada de React, cuando envuelvo un componente para envolver otro componente. Y toda esa informacion envuelta me llega como una prop llamada CHILDREN al componente que está envolviendo.
+
+    Todo el codigo que pase por layout
+
+    ICONS
+    ----
+
+    React Icons
+    https://www.react-icons.github.io/react-icons/
+
+    Google Fonts Icons
+    https://www.fonts.google.com/?selected=Material+Icons:home
+
+    
+    IMG
+    ----
+    Link from web
+        <img src="" alt="" />
+
+    Link desde public (siempre poner la ruta correcta)
+        <img src="../public/logo192.png" alt="logo" />  
+
+    Link desde src (la importo: y luego la la llamo entre llaves.
+    
+        import logo from '../img/logo192.png';)
+
+        y en el Navbar entre llaves
+        <img src={logo} alt="logo" /> 
