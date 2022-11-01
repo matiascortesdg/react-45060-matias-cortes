@@ -12,7 +12,7 @@ const Navbar = ( {isInHeader} ) => {
         return (
 
             <nav className="navbar">
-                <img src={logo} alt="logo" />  
+                <img className="logo" src={logo} alt="logo" />  
                 <h1>Zapatillas Running React</h1>
                 <ul className="ul">
                     <li className="li">Running</li>

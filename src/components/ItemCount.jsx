@@ -22,7 +22,7 @@ const ItemCount = ( { stock, initial, onAdd } ) => {
         const agregar = () => onAdd(count)
 
         return (
-            <div className="contador">
+            <div className="item-count">
 
                 <p className="btn-count">{count}</p>
                 <button className="btn-count" onClick={restar}>-</button>
