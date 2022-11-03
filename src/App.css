@@ -21,8 +21,16 @@ body {
 
 
 /* HEADER */
+ .logo-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
+
+}
+
   .navbar {
-    background-color:lightgrey;
+    background-color:lightsalmon;
     box-shadow:0px 0px 15px 1px #ccc;
     display: flex;
     justify-content: space-around;
@@ -30,6 +38,11 @@ body {
     align-items: center;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
+  }
+
+  .active {
+    border-bottom: 2px solid darkmagenta;
+    padding: 0px 5px 5px 0px;
   }
 
   .ul {
@@ -70,29 +83,50 @@ body {
     font-weight: 500;
     color: blueviolet;
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    padding: 10px 10px; 
+    padding: 10px 0px; 
 
 
   }
 
   .h3-title {
     font-family: 'Roboto', sans-serif;
-    font-weight: 300;
+    font-weight: bold;
     color: blueviolet;
     display: flex;
-    justify-content: space-around;
     align-items: center;
-    padding: 10px 10px;
+    padding: 10px 0px;
 
   }
 
+  .h4-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: blueviolet;
+    display: flex;
+    align-items: center;
+    padding: 10px 0px;
+
+  }
+
+  .h5-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    font-weight: normal;
+    color: darkgray;
+    display: flex;
+    align-items: center;
+    padding: 10px 0px;
+
+  }
+
+
   .descuento {
     font-family: 'Roboto', sans-serif;
-    font-weight: 300;
+    font-weight: 500;
     color: white;
-    background-color: cadetblue;
+    background-color: blueviolet;
+    width: fit-content;
     display: flex;
     padding: 10px 10px;
     border-radius: 10px ;
@@ -115,6 +149,7 @@ body {
     padding: 20px;
     max-width: fit-content;
     background-color: lightsalmon;
+    border-radius: 10px;
     display:flex;
     justify-content: space-around;
     align-items: center;
@@ -163,11 +198,29 @@ body {
       box-shadow: 0px 0px 10px 0.2px #c6c6c6;
     }
 
+  .item-detail-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+ .item-detail {
+  width: 650px;
+  margin: 20px;
+  border-radius: 10px;
+  padding: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+  .img-detail {
+    max-width: 80vh;
+  }
 
 
 /* FOOTER */
   .footer {
-    background-color:coral;
+    background-color: lightsteelblue;
     color: black;
     box-shadow:0px 0px 15px 1px #ccc;
     display: flex;
@@ -212,12 +265,20 @@ body {
     margin: 5px;
     padding: 10px;
 
+  }
+  
+  .btn-detail {
+    font-family: 'Roboto', sans-serif;
+    color: blueviolet;
+    padding: 10px 0px;
+    display: flex;
+
   } 
 
 /* IMG */
 
   .logo {
-    max-width: 200px;
+    max-width: 50px;
   }
 
   .img-item {

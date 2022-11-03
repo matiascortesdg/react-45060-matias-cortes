@@ -23,6 +23,10 @@ __
 4. Todos los componentes DEBEN RETORNAR 1 (UN) SÓLO ELEMENTO.
 
 5. Los componentes retornan JSX
+
+6. Todos los componentes pueden recibir PROPS({}) o enviar PROPS a otros componentes.
+
+
     
     Qué son los JSX? -> es JavaScript +  XML
     Y son una extension de JavaScript. NO es de React. Y quien se encarga, la libreria, que yo pueda tener JSX dentro y utilizar React es BABEL.
@@ -87,6 +91,16 @@ __
 
     PROPS
     ----
+
+	Qué son las props y para quénos sirven?
+
+	Puede servir para generar una logica y dividir el código. Generar una logica en el componente A y enviar esa logica al componente B para que este componente B la muestre en pantalla. De esta manera podemos modular, delegar y dividir la logica.
+
+
+    También es que son reutilizables, por ejemplo, teng un componente boton y este sea dinamica y que muestre un texto y /o color diferente. segun sea el contexto.
+
+    También se pueden pasar valores por default a traves de PROPS para evitar, por ejemplo, undefined en el return.
+
     esta es la forma:
         
         Foo key={value} />
@@ -146,4 +160,304 @@ __
         import logo from '../img/logo192.png';)
 
         y en el Navbar entre llaves
-        <img src={logo} alt="logo" /> 
+        <img src={logo} alt="logo" />
+
+
+EVENTOS
+----
+
+Todos los eventos van en camelCase y se escriben en la propia etiqueta html ej:
+
+	<p onClick={Funcion}>Hola!{Saludo}</p>
+
+Si tengo que pasarle un argumento a la funcion debemos hacer una callback y quedaria algo así
+
+	
+	<p onClick={() => saludar ('React')}>Hola!{Saludo}</p>
+
+
+ESTADOS
+----
+
+Nos van a permitir PERSISTIR INFORMACION a medida que el propio componente se vaya renderizando. Como sie fuera una memoria interna del componente.
+
+ CADA VEZ UE HAYA UN CAMBIO DE ESTADO, CAMBIO DE PROP O UN EVENTO QUE DISPARE UN CAMBIO DE ESTADO O UN CAMBIO DE PROP SE VOLVERÁ A RENDERIZAR EL COMPONENTE. Y LOS HIJOS DE ESE COMPONENTE TAMBIÉN.
+
+    Hooks
+    ----
+
+    useState
+    --
+
+    Ejemplo:
+    const = [state, setState] = useState(0)
+
+    La primera posicion es mi estado(state) y la segunda es la funcion seteadora(setState). Dentro del parentesis puedo poner un valor inicial para que mi estado no arranque en undefineduseState(0).
+
+    LA UNICA MANERA QUE TENGO DE MODIFICAR MI ESTADO es atraves de la funcion seteadora:
+
+        setState(state + 10)
+    REACT sólo modifica el DOM cuando escucha que se emite una función seteadora.
+
+    
+    
+    useEffect()
+    --
+
+    Elegir y poder Codear aue pase algo luego de una vez renderizado en pantalla lo que tenga el componente?
+    
+    useEffect permite ejecutar codigo luego del primer renderizado del componente (return)
+
+        // Este 1er useEffect se volverá a renderizar cuando hya un cambio de estado o de prop o un evento que dispare un cambio de estado o cambio de prop. Hay que tener cuidado de no generar un loop de cambio de estado en este useEffect.
+        //este codigo se renderizaría luego del primer renderizado del return
+
+        //Este 2do useEffect se ejecuta luego del render y se ejecuta 1 sola vez por el array de dependencia , []); y ES IDEAL PARA LLAMADAS ASINCRONICAS, una API. Si el hijo se renderiza no afecta al padre.
+
+        //este 3era useEffect se ejecuta luego del render y se ejecuta 1 sola y luego cada vez que cambiamos la dependencia que le indicamos entre corchetes([texto]);
+        Un uso puede ser ir a buscar inforacion a una API externa.
+
+
+PROMISE (asincronía)
+----
+
+Una promesa es un objeto que permite representar y seuir el ciclo de vida de una tarea/operación (funcion)
+
+Estados posibles:
+    pending => (fullfilled || rejected)
+
+    .isFullfilled
+    .is.Pending
+    .isRejected
+
+como se resuelve?
+    
+    const task = new Promise((resolve, reject) => {
+        //tarea asíncrona usando fetch, ajax
+        resolve(true)
+    });
+    task.then(result => {
+        console.log(result);
+    });
+
+
+
+APIs
+----
+
+La mayoria de las aplicaciones suelen generar eperiencias de suaurio gracias a que se puede conectar a un conjunto de servicios de datos.
+Por lo tanto necesitamos conectarnos con otros servicios y mostrarlo en nuestra aplicación.
+
+    Modelo-cliente servidor
+    -- 
+
+    El cliente siempre es el que hace la consulta. y el servidor es el que responde y brinda la informacion.
+
+    El servidor busca info a la base de datos. esto lo hace cliente de la base de datos.
+
+    Client -> server -> Data Base
+    Client <- server <- Data Base
+
+    Con protocolos como https para comunicarnos con el servidor. Otro puede ser FTP, por ejemplo, para subirlo de nuestra pc a un servidor.
+
+    SSH github de seguridad.
+
+    El cliente inicia y solicita la informacion.
+    Para esto necesitamos darle al servidor:
+        1- La URL -> en el endpoint al cual yo voy a acceder.
+        2- Metodo: va  a ser: get, post, edit, update, option, etc... para utilizar para trae info, enviar info, editar info, etc.
+
+    Además, podemos brindarle al servidor la info de mi headers, body
+
+    Enviamos la informacion en formato .json que es un formato de texto.
+
+    Las notificaciones PUSH, sería lo contrario. El servidor inicia y elige el momento del inicio de la transferencia y la envia a un servicio. Y el servicio se la provee al cliente. Esta es la forma que las aplicaciones generen engagement.
+
+    De no utiizar push, el Polling tendriamos pedidos de info o request hacia el servidor. 
+
+    REQUEST VIA HTTP/s
+    --
+    permiten realizar una solicitud a un servidor, y nos proemiten establecer un protocolo de transferencia definido por:
+
+     - direccion URL
+     - METODOS x VERBOS: 
+        
+        GET -> quiero obtener -> get /pet/{petId} -> find pet by id
+            un GET podría ser cacheado
+
+        POST -> quiero crear  -> post /pet/{petId}/uplpadImage -> uploads an image
+            el navegador sabe que un POST no deberia ser cacheado, ej, info de trans o tarjeta de credito.
+
+        PUT -> quiero crear o actualizar -> put /pet update an existing pet.
+        
+        DELETE -> quiero elimininar -> delete /pet/{petId}/ deletes a pet.
+
+        PATCH -> quiero alterar parcialmente
+
+     - QUERY PARAMOS (parámetros via query o URL)
+
+        Nos permiten incluir en la direccion informacion que se usa para especificarle al receptor parametros qpara afectuar una busqueda, son mas comunes para buscar recursos que no tengo la seguridad de que existan, ej:
+
+            https://google.com.ar/search?q=coderhouse
+
+            Esto se puede leer como:
+                - buscar en google.com.ar 
+                - utilizando https
+                - el recurso search? (resultados de busqueda)
+                - que contenga la palabra (q= query) 'coderhouse'
+                
+        URL QUERY PARAMS
+        ---
+            - se separa la URL de los parametros utiizando signo de ?
+            - Cada parametro tendra key=value & key2=value2
+            - Cada parametro se puede separar por signo &
+                
+                ej: https://url.com/find?type=order&id=1234
+
+
+        URL PARAMS/SEGMENT
+        ---
+            - Son una convencion para incluir el identificador del recurso dentro de la misma url, son mas comines cuando yase conoce el recurso específico que se buscará. Ej:
+
+                https://myapp.coder/student/1234
+                se puede leer como:
+                - busca en myapp.coder
+                - utilizando https
+                - el recurso student
+                - con id 1234
+
+                https://myapp.coder/student/1234/courses
+                se puede leer como:
+                - busca en myapp.coder
+                - utilizando https
+                - el recurso courses
+                - unicamente para student 1234
+                
+        RECURSOS/RESTFUL (la arquitectura)
+        ---
+            Cuando se crea y provee un servicio basado y pensado en terminos de crecursos y se respetan las convenciones de verbo/metodo y codoigo de respuesta, estamos frente a un diseño arquitectural de tipo REST
+
+            Si además transferimos JavaScript o XML, es conocido com AJAX.
+
+
+     - HEADERS (config)
+
+        Request -> son los que Enviamos
+        Response -> son los que me devuelve
+
+        POST /create-user http/1.1
+        Host: localhost:3000
+        Connection_ kepp-alive
+        Content-type: application/json
+
+     - BODY (contenido en un POST)
+
+        { "name": "john", "age": 35 }
+        Se podría enviar usuario y contraseña para un login por ej.
+
+
+
+        Se utiliza para transferir piezas de informacion entre el cliente y el servidor
+
+
+
+
+    HTTP codigo que nos devuelve la promesa cuando hacemos un fetch, axios, etc...
+
+   Status:
+        fetch, ajax, axios, nos devuleven promesas.
+
+ Lo importante es controlar que nos devuelve esa promesa.
+
+    erroes de codigo exlicado con gatitos
+    https://http.cat/
+
+    los 100 > info
+    los 200 > info correcta
+    +200 > reedireccion 
+    los 400 > errores de cliente
+    +500 > errores del servidor (lo peores errores)
+
+    Una de las funcion s para traer esa rspuesta, jempl un array de productos, es .json de la respuesta.
+    
+    Si nos devuelve otra promesa debemos convertir ese json en un array de productos.
+
+    CORS
+    --
+    Al hacer un request, nos podemos encontrar con este problema/error
+    de acceso. Por ej: lo unicos que pueden hacer request son desde una determinada URL.
+
+
+ROUTES
+----
+
+La facilidad con la que nuestra aplicacion permte agrgar funcionalidades y navegarlas es un factor clave en temrinos de experiencia y escalabilidad.
+
+    PASO A PASO 
+
+    HOME (INICIO) -> BUSQUEDA > DETALLE > CONFIRMACION > FIN
+
+
+Entonces tenemos las RUTAS:
+
+    ROUTING
+    --
+
+    INSTALACION DE ROUTER (en cada proyecto que necesite rutas)
+    --
+
+    npm install react-router-dom
+    esta es la libreria para routing en el browser (NAVEGADOR)
+
+    react-router-native 
+    esta es la libreria para rounting en react-native
+
+    En App.js
+    
+        //importo la libreria react-router-dom
+        import {BrowserRouter,  } from 'react-router-dom'
+
+    BrowserRouter > es el componente que que va a envolver a toda nuestra aplicacion y va a dar todas las funcionalidades que voy a poder usar con la libreria. Y así le provee a los otros componentes todas esas funcionalidades.
+
+    Routes > importo 2da libreria
+    
+        import {BrowserRouter, Routes  } from 'react-router-dom'
+
+    Routes > es el componente que va a envolver las rutas de mi aplicacion. Por lo tanto Header Nav y Footer podría no estar dentro ya que queremos que se vean siempre.
+
+    
+    Routes > importo 3era libreria
+    
+        import {BrowserRouter, Routes, Route  } from 'react-router-dom'
+
+    Route > es el componente que va a envolver cada ruta (  y la etiqueta abre y cierra) y dentro lleva 2 paramtros:
+
+        <Route path='/' element={}>
+    
+    path > path='/' indica cual va aser la ruta del home, la que se renderiza al iniciar la aplicacion.
+  
+    element > el 2do parametro es el elmento que yo quiera renderizar cuando yo esta ruta.
+
+    LINK
+    --
+
+    Dentro de la libreria react-router-dom podemos import el componente Link
+            import { Link } from 'react-router-dom'
+
+            y donde antes utilizamos la etiqueta <a> la vamos reemplazar por la <Link to=""></Link> y el href por el to=""
+
+    Podemos usar la etiqueta NavLink para agregarle la funcion de .active cuando se esté en esa ruta
+
+            <NavLink to="/category/trail" className="li">Trail</NavLink>
+    
+Ahora para hacer la ruta hacia cada NavLnk, categorias y demas en cada Route le agregamos un parametro dinamico, en ese caso :categoryName como un parametro dinamico.   
+
+        <Route  path="/category/:categoryName"
+                element={<ItemListContainer />}
+        />
+
+Para terminar la ruta vamos a utilizar otro componente de la libreria react-router-dom llamado useParams y se importa
+
+            import { useParams } from 'react-router-dom'
+
+esa variable que nosotros le ponemos le nombre que queramos, en este caso, categoryName que viene despues de los : y esto la libreria lo va a tomar como un parametro dinamico. Y luego voy a poder leer esa variable en el componente
+que está indicando la ruta, en este caso ItemListContainer llerlo a traves del hook useParams.

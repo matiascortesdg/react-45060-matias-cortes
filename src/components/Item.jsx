@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const Item = ( { producto } ) => {
 
     return (
@@ -6,10 +8,12 @@ const Item = ( { producto } ) => {
             <arcticle>
                 <h2 className="h2-title">{producto.title}</h2>
                 <h4 className="descuento">{producto.descuento}% descuento</h4>
-                <h3 className="h3-title">${producto.price}</h3>
-                <h3 className="h3-title">${(producto.price * producto.descuento)/100}</h3>
+                <h5 className="h5-title"><s>${producto.price}</s></h5>
+                <h3 className="h3-title">${producto.price - (producto.price * producto.descuento)/100}</h3>
 
-
+                <Link className="btn-detail" to={`/detail/${producto.id}`}>
+                    Ver detalle
+                </Link>
             </arcticle>
         </div>
     );

@@ -4,26 +4,38 @@
 import Button from './Button';
 import logo from '../img/logo192.png';
 import CartWidget from './CartWidget';
+import { Link, NavLink } from 'react-router-dom'
 
-const Navbar = ( {isInHeader} ) => { 
+const Navbar = ( { isInHeader } ) => { 
 
     if(isInHeader) {
 
         return (
 
             <nav className="navbar">
-                <img className="logo" src={logo} alt="logo" />  
-                <h1>Zapatillas Running React</h1>
+
+                <Link to="/" >
+                    <div className="logo-container">
+                        <img className="logo" src={logo} alt="logo"/>
+                        <h1>Zapatillas Running React</h1>
+                    </div>
+                </Link>
                 <ul className="ul">
-                    <li className="li">Running</li>
-                    <li className="li">Trail</li>
-                    <li className="li">Trekking</li>
-                    <li className="li">Nosotros</li>
-                    <li className="li">Contacto</li>
+                    <NavLink to="/category/Running"  className="li">Running</NavLink>
+                    <NavLink to="/category/Trail" 
+                    className="li">Trail</NavLink>
+                    <NavLink to="/category/Trekking"  className="li">Trekking</NavLink>
+                    <NavLink to="/nosotros" 
+                    className="li">Nosotros</NavLink>
+                    <NavLink to="/contacto" 
+                    className="li">Contacto</NavLink>
                 </ul>
                 <div className="icons">
                     <Button text="login"/>
-                    <CartWidget />
+                    <Link to="/cart">
+                        <CartWidget />
+                    </Link>
+
                 </div>
                 
             </nav>
