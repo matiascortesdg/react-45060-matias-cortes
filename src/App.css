@@ -217,6 +217,14 @@ body {
     max-width: 80vh;
   }
 
+  .form-container {
+    min-height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
 
 /* FOOTER */
   .footer {

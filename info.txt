@@ -461,3 +461,16 @@ Para terminar la ruta vamos a utilizar otro componente de la libreria react-rout
 
 esa variable que nosotros le ponemos le nombre que queramos, en este caso, categoryName que viene despues de los : y esto la libreria lo va a tomar como un parametro dinamico. Y luego voy a poder leer esa variable en el componente
 que está indicando la ruta, en este caso ItemListContainer llerlo a traves del hook useParams.
+
+
+EVENTOS 
+----
+eventos en formularios
+    onSubmit="enviarDatos{}
+
+    inputs controlados
+    --
+
+    inputs no controlados(formulario que react no recomienda porque no puede acceder a todo)
+    --
+    

@@ -18,6 +18,14 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 //importo componente Cart
 import Cart from './components/Cart';
 
+//importo componente Nosotros
+import Nosotros from './components/Nosotros';
+
+//importo componente Contacto
+import Contacto from './components/Contacto';
+
+//importo componente Form
+import Form from './components/form/Form';
 
 //importo componente Footer
 import Footer from './components/Footer';
@@ -47,17 +55,20 @@ const App = () => {
         />
         
         <Route path="/detail/:idProd"
-                element={ 
-                  <ItemDetailContainer
-                  />
-                }
+                element={<ItemDetailContainer />}
         />
       
         <Route path="/cart"
-                element={
-                  <Cart
-                  />
-                }
+                element={<Cart />}
+        />
+                <Route path="/contacto"
+                element={<Contacto />}
+        />
+                <Route path="/nosotros"
+                element={<Nosotros />}
+        />
+                <Route path="/checkout"
+                element={<Form />}
         />
 
       </Routes>
