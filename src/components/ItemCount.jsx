@@ -5,9 +5,12 @@ const ItemCount = ( { stock, onAdd } ) => {
         const [count, setCount] = useState(1);
 
         const sumar = () => {
-            if (count < stock) {
-                setCount(count + 1);
-            };
+            //count < stock ? setCount(count +1) : alert('No se puede sumar más productos') 
+            count < stock && setCount(count + 1)
+            
+            // if (count < stock) {
+            //     setCount(count + 1);
+            // };
         };
 
         const restar = () => {

@@ -7,9 +7,9 @@ import CartWidget from './CartWidget';
 import { Link, NavLink } from 'react-router-dom'
 
 const Navbar = ( { isInHeader } ) => { 
+    // <nav className={isInHeader ? 'navbar' : 'footer'}>
 
     if(isInHeader) {
-
         return (
 
             <nav className="navbar">
