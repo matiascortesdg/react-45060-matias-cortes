@@ -1,10 +1,11 @@
 import { useState } from 'react'
 
-const ItemCount = ( { stock, onAdd } ) => {
+const ItemCount = ( { stock, onAdd, initial=1 } ) => {
 
-        const [count, setCount] = useState(1);
+        const [count, setCount] = useState(initial);
 
         const sumar = () => {
+            //Usando ternario
             //count < stock ? setCount(count +1) : alert('No se puede sumar más productos') 
             count < stock && setCount(count + 1)
             

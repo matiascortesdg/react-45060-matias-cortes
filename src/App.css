@@ -226,6 +226,29 @@ body {
 
   }
 
+  .cart-container{
+    margin: 20px;
+    padding: 20px;
+    display: flex;
+    justify-content:baseline;
+    align-items:baseline;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+  }
+
+  .cart {
+    margin: 10px;
+    padding: 10px;
+    max-width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
 
 /* FOOTER */
   .footer {
@@ -294,5 +317,7 @@ body {
     max-width: 200px;
   }
 
-
+.cart-img {
+  max-width: 50px;
+}
   

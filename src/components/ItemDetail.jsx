@@ -14,7 +14,7 @@ const ItemDetail = ( { item } ) => {
     const [ show, setShow ] = useState(true);
 
     //context usando el value traemos del context la funcion addToCart
-    const { addToCart } = useContext(CartContext);
+    const { addToCart, cantidadDeProducto } = useContext(CartContext);
 
     const onAdd = (qty) => {
         //setCant(qty)
@@ -22,6 +22,10 @@ const ItemDetail = ( { item } ) => {
         addToCart(item, qty);
 
     };
+
+    //creamos una funcion para cantidadDeProducto
+    const cantidad = cantidadDeProducto(item.id);
+
         //Ahora usando ternarios podemos mostrar o no el contador una vez agregador al carrito.
     return ( 
         <div className="item-detail">
@@ -33,10 +37,9 @@ const ItemDetail = ( { item } ) => {
                 <h5 className="h5-title"><s>${item.price}</s></h5>
                 <h3 className="h3-title">${item.price - (item.price * item.descuento)/100}</h3>
                 
-                { show  ?   ( <ItemCount stock={item.stock} onAdd={onAdd}  />
-                  ) : (  <Link to="/cart">Ir al Carrito
-                                
-                            </Link>
+                { show  ?   ( <ItemCount stock={item.stock} onAdd={onAdd} initial={cantidad} />
+                  ) : ( <Link to="/cart">Ir al Carrito                       
+                        </Link>
                   )};
                 
             </div>

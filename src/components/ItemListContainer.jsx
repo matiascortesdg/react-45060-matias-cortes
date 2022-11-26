@@ -44,7 +44,7 @@ const ItemListContainer = ( { greeting, intro } ) => {
     if (loading) {
         return (
             <div className="item-list-container">
-                <b>Cargando</b> <BeatLoader color="#36d7b7" margin={15} size={20} />
+                <h1>Cargando</h1> <BeatLoader color="#36d7b7" margin={15} size={20} />
             </div>
         );
     };

@@ -474,3 +474,72 @@ eventos en formularios
     inputs no controlados(formulario que react no recomienda porque no puede acceder a todo)
     --
     
+
+CONTEXT 
+----
+
+A diferencia de la props que son siempre de padre a hijo. Para evitar errores de props, o cuando son demasiados. Y ademas, siempre se vuelve tedioso pasar de un componente a otro. Esto sería como un ATAJO a un deposito donde uno puede llevar o traer algo. No importa el orden de los componente.
+
+Podriamos tener un contexto de usuarios, de light dark mode, de carrito de compras, etc. Para pasar toda la info que tenemos desde ItemDetail a CArtWidget, al Cart oal ItemCount, creamos un nuevo "componente" de LOGICA llamado CONTEXTO y desde el CONTEXTO a donde nosotros querramos. Es una herramienta de React. Vamos a poder manejar Estados, Funciones y Variables.
+
+    creatContext -> para crea un contexto
+    useContext -> usar un contexto (es un Hook)
+    Provider -> provee la info de ese contexto
+
+        import { createContext } from 'react';
+        import { products } from './products';
+        import { useState } from 'react';
+
+        const PruebaContexto = createContext ();
+
+        y usamos el Provider para envolver componentes y sus hijos tienen acceso al contexto.
+
+        const [ prod, setProd ] = useState(products);
+
+        <PruebaContexto.Provider value={prod}>
+            <CardContainer />
+        </PruebaContexto.Provider>
+
+    y vamos a usar useState para crear un estado y a traves de la paabra reservada value y con esta key van a tener acceso
+
+    Para traer la info del contexto vamos a utilizar el hook useContext
+
+        import { useContext } from 'react';
+        import { PruebaContexto } from './App';
+
+        const valor = useContext(PruebaContexto); 
+
+
+
+TECNICAS DE RENDERING
+----
+
+Optar por disintos caminos a traves de condicionales.
+True False en cualquier tipo de componentes, estilos, etc..
+
+    Rendering condicionales
+    --
+
+    -> Sirve para aparecer y desaparecer nodos del render
+
+    -> Estos eventos provocan dismounting y todos los efectos que ellos conlleva
+
+    -> Se llamará efecto de desmontaje y podremos detectarlo
+
+    -> Podemos usar los cleanup effects para detectar algún dismountung si no sabemos con certeza si ocurre
+
+    -> a veces se producen sin intención y causan bugs o perdida no intencionada del estado, dando inestabilidad.
+
+        Tecnicas de Rendering condicionales
+        -
+        1. IF CON RETURN TEMPRANO
+            React renderiza el resultado 
+
+        installation SPINNERS
+
+        $ npm i react-spinners
+
+        
+        2. INLINE CON FRAGMENTS (usarlo en ItemCount)
+
+        3. TERMARIOS en ItemDetail
