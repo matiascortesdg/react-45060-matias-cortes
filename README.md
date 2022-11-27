@@ -84,7 +84,8 @@ $ npm install
 $ npm start
 ```
 ## Preview
-
+![](./public/preview-1.png)
+![](./public/preview-2.png)
 
 ## Learn More
 
