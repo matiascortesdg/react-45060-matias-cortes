@@ -12,7 +12,6 @@ const Main = ( { intro  } ) => {
 
     return (
         <main className="main">
-
           <Button text="Ver Más>>" />
         </main>
     )

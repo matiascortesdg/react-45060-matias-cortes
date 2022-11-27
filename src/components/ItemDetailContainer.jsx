@@ -1,9 +1,11 @@
 //Creamos componente ItemDetailContainer
 
 import React, { useEffect, useState } from 'react'
-import { getProduct } from '../mock/products'
+//import { getProduct } from '../mock/products'
 import ItemDetail from './ItemDetail'
 import { useParams } from 'react-router-dom'
+import { collection, doc, getDoc } from 'firebase/firestore'
+import { db } from '../services/firebaseConfig'
 
 const ItemDetailContainer = () => {
 //estado de objetos
@@ -14,20 +16,26 @@ const [ loading, setLoading ] = useState(true);
 const { idProd } = useParams();
 
 useEffect(() => {
-        //apenas carge el use cambia a true
-        //setLoading(true)
-        getProduct(idProd)
-            .then((res) => {
-                setItem(res)
-            })
+    //creamos una constate collectionProd
+    //const collectionProd
+    const collectionProd = collection(db, 'productos');
+    const ref = doc(collectionProd, idProd);
 
-            .catch((error) => {
-                console.log(error)
-            })
-            //finally se va a ejecutar siempre si cae en then o catch
-            .finally(() =>  {
-                setLoading(false);
-            });
+    getDoc(ref)
+
+    .then((res) => {
+        //console.log(res)
+        setItem({
+            id: res.id,
+            ...res.data(),
+        });
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+    .finally(() => {
+        setLoading(false)
+    });
 
     }, [idProd]);
 

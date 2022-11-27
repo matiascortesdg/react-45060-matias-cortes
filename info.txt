@@ -543,3 +543,37 @@ True False en cualquier tipo de componentes, estilos, etc..
         2. INLINE CON FRAGMENTS (usarlo en ItemCount)
 
         3. TERMARIOS en ItemDetail
+
+PERFORMANCE
+--
+Si no modularizamos estamos ante un caso de performance y se renderiza el componente. Lo mejor es saber bien modularizar los componentes. Para esto podemos usar algunos hooks.
+
+Esto tambien si significa que hay que saber donde aplicar donde ejecutar herramientas de performance porque puede ser contraproducente.
+
+    Hooks
+    -
+
+    1. useEffect(() => {}, []) -> metodo que dentro tiene un callback y puede llevar o no una dependencia.
+    
+    2. useMemo(() => {}, []) -> memo -> para memoriza valores
+
+        Memorizamos el componente:
+                export default memo(Componente);
+        y se importa
+            import { memo } from 'react'
+        
+
+    3. useCallback(() => {}, []) -> memoriza funciones por eejmplo si dentro de una componente memorizamos 1 de las 3 funciones  eviatar que se rendericen las 3 con cada clic sino la que cambia.
+        
+
+            const aumentar1 = useCallback(() => {
+            cambiarContador1(contador1 +1);
+            }, [contador1]);
+        
+            const aumentar2 = useCallback(() => {
+            cambiarContador2(contador2 +1);
+            }, [contador2]);
+        
+            const aumentar3 = useCallback(() => {
+            cambiarContador3(contador3 +1);
+            }, [contador3]);

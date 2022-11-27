@@ -209,13 +209,25 @@ body {
  .item-detail {
   width: 650px;
   margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  border-radius: 10px;
+  padding: 20px;
+  transition: all 0.2s ease-in-out;
+}
+
+.detail {
+  width: 650px;
+  margin: 10px;
   border-radius: 10px;
   padding: 20px;
   transition: all 0.2s ease-in-out;
 }
 
   .img-detail {
-    max-width: 80vh;
+    max-width: 70vh;
   }
 
   .form-container {
@@ -285,7 +297,7 @@ body {
   .icon {
     color: red;
     font-weight: 700;
-    padding: 15px;
+    padding: 5px;
   }
 
 
@@ -307,10 +319,17 @@ body {
 
   } 
 
+  .btn-input{
+    display: flex;
+    margin: 5px;
+    padding: 10px;
+  }
+
 /* IMG */
 
   .logo {
-    max-width: 50px;
+    max-width: 60px;
+    margin: 0 20px;
   }
 
   .img-item {

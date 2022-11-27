@@ -2,7 +2,7 @@
 
 //importamos componente Button
 import Button from './Button';
-import logo from '../img/logo192.png';
+import logo from '../img/logo.png';
 import CartWidget from './CartWidget';
 import { Link, NavLink } from 'react-router-dom'
 
