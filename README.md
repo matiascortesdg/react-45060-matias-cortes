@@ -1,45 +1,90 @@
-# Bienvenidos a tienda online de Zapatillas Running React
+# Bienvenidos a tienda online de 'Zapatillas Running React'
 
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+*Zapatillas Running React* es un e-commerce de una gran de variedad de marcas y modelos de zapatillas que se adaptan mejor para hacer running urbano, de trail y de trekking.
 
-## Available Scripts
+![](./public/logo.png)
 
-In the project directory, you can run:
+Es un proyecto para el curso de _React JS_ de _CODERHOUSE_.
 
-### `npm start`
+Para ver el proyecto: bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Funcionalidades del proyecto`
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+Se pueden navegar por las 3 categorías de productos Running, Trail y Trekking para filtrar resultados de los producto. Una vez a´hi se puede ver el detalle de cada producto y elegir la cantidad a comprar. También se puede navegar por el carrito de compras y ver que productos tengo agregados o no y la cantidad. Y para temrinar se puede hacer u checkout de la comprar con una validación antes de enviar.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Librerías utilizadas
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Algunas de las librerias utilizadas:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+(https://reactrouter.com/)
+    
+- BrowserRouter
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    _almacena la ubicación actual en la barra de direcciones del navegador usando direcciones URL._
 
-### `npm run eject`
+- Routes
+  
+  _es el componente que que va a envolver a toda nuestra aplicacion y va a dar todas las funcionalidades que voy a poder usar con la libreria. Y así le provee a los otros componentes todas esas funcionalidades._
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Route
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    _es el componente que va a envolver cada ruta  y dentro lleva 2 paramtros:
+    un path='/' y un element={}_
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Link 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    _donde antes utilizamos la etiqueta < a > la vamos reemplazar por la Link to="" y el href por el to=""_
+    
+- NavLink
+
+    _para agregarle la funcion de .active cuando se esté en esa ruta._
+
+* React Spinners BeatLoader
+    _para darle feedbackal usuario de que el componente se está cargando y el usuario sepa que la acción que realizó está en curso._
+
+* Firabase
+
+    _Para el manejo de la base de datos, se usó Firebase._
+
+
+## Tipografías
+Se incorporaron tipografías de Google Fonts:
+* [Roboto Sans]('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+## Hooks
+* useState();
+permite añadir el estado de e que hacer algo después de renderizarse.
+
+* useEffect();
+el componente tiene que hacer algo después de renderizarse.
+
+* useContext();
+permite comunicar componentes funcionales a través del contexto. En este caso el productos en el carrito.
+
+* useParams();
+simplificar la creación, redirección y anidación de rutas para crear una navegación dinámica
+*
+
+
+
+## Como instalar y usar el repositorio del proyecto
+
+```bash
+# Clonar este repositorio
+
+$ git clone https://github.com/matiascortesdg/react-js-45060-matias-cortes.git
+
+# Instalar las dependencias
+$ npm install
+
+# Correr la app
+$ npm start
+```
+## Preview
+
 
 ## Learn More
 
@@ -47,26 +92,3 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
