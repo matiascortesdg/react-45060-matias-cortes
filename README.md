@@ -7,15 +7,11 @@
 
 Es un proyecto para el curso de _React JS_ de _CODERHOUSE_.
 
-Para ver el proyecto: bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## Funcionalidades del proyecto`
-
 
 Se pueden navegar por las 3 categorías de productos Running, Trail y Trekking para filtrar resultados de los producto. Una vez a´hi se puede ver el detalle de cada producto y elegir la cantidad a comprar. También se puede navegar por el carrito de compras y ver que productos tengo agregados o no y la cantidad. Y para temrinar se puede hacer u checkout de la comprar con una validación antes de enviar.
 
 ## Librerías utilizadas
-
 
 Algunas de las librerias utilizadas:
 
@@ -68,8 +64,6 @@ permite comunicar componentes funcionales a través del contexto. En este caso e
 simplificar la creación, redirección y anidación de rutas para crear una navegación dinámica
 *
 
-
-
 ## Como instalar y usar el repositorio del proyecto
 
 ```bash
@@ -90,6 +84,9 @@ $ npm start
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+
+Para ver el proyecto: bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
