@@ -1,13 +1,9 @@
-//Creamos el componente Navbar.jsx
-
-//importamos componente Button
 import Button from './Button';
 import logo from '../img/logo.png';
 import CartWidget from './CartWidget';
 import { Link, NavLink } from 'react-router-dom'
 
 const Navbar = ( { isInHeader } ) => { 
-    // <nav className={isInHeader ? 'navbar' : 'footer'}>
 
     if(isInHeader) {
         return (

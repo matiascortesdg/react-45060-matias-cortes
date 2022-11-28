@@ -1,4 +1,4 @@
-//Array de objetos
+
 export const products = [
 
     {id: 1,

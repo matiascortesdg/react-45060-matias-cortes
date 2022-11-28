@@ -1,5 +1,3 @@
-//Creamos el componente Button.jsx
-
 const Button = ( {text} ) => {
 
     return (

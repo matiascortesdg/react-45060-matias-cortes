@@ -1,5 +1,3 @@
-//creamos el componente nosotros
-
 const Nosotros = () => {
 
     return (

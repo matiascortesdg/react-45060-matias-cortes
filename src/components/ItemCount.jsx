@@ -5,13 +5,8 @@ const ItemCount = ( { stock, onAdd, initial=1 } ) => {
         const [count, setCount] = useState(initial);
 
         const sumar = () => {
-            //Usando ternario
-            //count < stock ? setCount(count +1) : alert('No se puede sumar más productos') 
             count < stock && setCount(count + 1)
-            
-            // if (count < stock) {
-            //     setCount(count + 1);
-            // };
+
         };
 
         const restar = () => {
@@ -33,8 +28,6 @@ const ItemCount = ( { stock, onAdd, initial=1 } ) => {
                 <button className="btn-count" disabled={count === stock} onClick={sumar}>+</button>
                 <button className="btn-count" disabled={stock === 0} onClick={agregar}>Agregar al Carrito</button>
                 <button className="btn-count" onClick={reset}>Volver al Valor inicial</button>
-
-
             </div>
         )
 };

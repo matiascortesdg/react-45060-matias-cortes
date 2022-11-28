@@ -1,7 +1,3 @@
-//Creamos nuestro componente Footer
-//Antes de la version 17 tenia que estar import React from 'react';
-
-//Si quiero reutilizar un componente, ejemplo Navbar puedo hacerlo
 import Navbar from './Navbar';
 
 const Footer = () => {

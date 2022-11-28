@@ -1,5 +1,3 @@
-//Creamos el componente Form.jsx
-//importamos el estadoy el useEffect
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useContext } from 'react';
@@ -7,9 +5,8 @@ import { CartContext } from '../../context/CartContext';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { db } from '../../services/firebaseConfig';
 
-
 const Form = () => {
-    //2. creamos un estado x cada tipo de dato (input) que queremos controlar (la que le gusta a React) con un valor inciicial vacio para que no nos de undefined
+
     const [ name, setName ] = useState('');
     const [ lastName, setLastName ] = useState('');
     const [ direccion, setDireccion ] = useState('');
@@ -17,20 +14,15 @@ const Form = () => {
     const [ emailUno, setEmailUno ] = useState('');
     const [ emailDos, setEmailDos ] = useState('');
 
-    //estado id
     const [ orderId, setOrderId ] = useState('');
 
-    //me traiga cdel cartContext el estado cart
     const { cart, totalPrecio, deleteAll } = useContext(CartContext);
     const totalCarrito = totalPrecio(); 
     
-    //1.creamos la funcion del evento
     const enviarDatos = (e) => {
-        // e.preventDefault() nos sirve para que no se nos refresque la pagina
-        e.preventDefault();
-        //nuestra orden de compra
-        //console.log({ name , lastName, direccion, telefono, emailUno, emailDos });
 
+        e.preventDefault();
+        
         const ObjOrden = {
             buyer: {
                 name,
@@ -45,7 +37,7 @@ const Form = () => {
         };
 
         const orderCollection = collection(db, 'orders')
-        //metodo a utilizar addDoc nos devuelve
+
         addDoc(orderCollection, ObjOrden)
             .then((res) =>{
                 setOrderId(res.id);
@@ -54,48 +46,36 @@ const Form = () => {
             .catch((error) =>{
                 console.log('Hubo un error', error)
             })
-            // .finally(() =>{
-
-            // })
-    
     };
 
-    
-    //3. Tenemos que tener en cada input una funcion onChange y la funcion
     const handleName = (e) => {
-        //guardamos con el set, arranca vacio
         setName(e.target.value);
     };
 
     const handleLastName = (e) => {
-        //si yo quiero saber que tipo disparo ese evento usamos target y lo guardo en un estado
         setLastName(e.target.value);
     };
             
     const handleDireccion = (e) => {
-        //si yo quiero saber que tipo disparo ese evento usamos target y lo guardo en un estado
         setDireccion(e.target.value);
     };
 
     const handleTelefono = (e) => {
-        //si yo quiero saber que tipo disparo ese evento usamos target y lo guardo en un estado
         setTelefono(e.target.value);
     };
 
     const handleEmailUno = (e) => {
-        //si yo quiero saber que tipo disparo ese evento usamos target y lo guardo en un estado
         setEmailUno(e.target.value);
     };
 
     const handleEmailDos = (e) => {
-        //si yo quiero saber que tipo disparo ese evento usamos target y lo guardo en un estado
         setEmailDos(e.target.value);
     };    
 
-//early return con if
 if(orderId) {
     return (
-         <h1>Gracias por tu compra! Tu numero de seguimiento es: {orderId}</h1>
+         <h1>Gracias por tu compra! Tu numero de seguimiento es: {orderId} Vuelve al  
+         <Link to="/">Home</Link></h1>
     );
 };
 

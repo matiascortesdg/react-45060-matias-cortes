@@ -1,5 +1,3 @@
-//creamos el componente contacto
-
 const Contacto = () => {
 
     return (

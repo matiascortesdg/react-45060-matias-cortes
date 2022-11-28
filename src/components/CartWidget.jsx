@@ -1,5 +1,3 @@
-//Creamos el componente CartWidget.jsx
-
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
 
